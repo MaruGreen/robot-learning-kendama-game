@@ -4,7 +4,7 @@
 ###### $ pip install gym
 ###### $ pip install pygame
 ###### $ sudo cp user $(YOUR_PATH_TO_gym_envs)/
-#####  Add the following code to the end of $(YOUR_PATH_TO_gym_envs)/__init__.py
+###  Add the following code to the end of $(YOUR_PATH_TO_gym_envs)/__init__.py
 ###### #### User
 ###### #### ---------
 
@@ -17,9 +17,9 @@
 
 
 ## How to run
-####  For automatical control
+###  For automatical control
 ###### $ pyhton test_model.py
-####  For human control
+###  For human control
 ###### $ python player.py
 
 

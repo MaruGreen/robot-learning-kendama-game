@@ -1,16 +1,16 @@
-### 2d Kendama simulator based on OpenAI gym
+## 2d Kendama simulator based on OpenAI gym
 
 ###### $ pip install gym
 ###### $ pip install pygame
 ###### $ sudo cp user $(YOUR_PATH_TO_gym_envs)/
 #####  Add register to $(YOUR_PATH_TO_gym_envs)/__init__.py
-#####  For automatical control
+####  For automatical control
 ###### $ pyhton test_model.py
-#####  For human control
+####  For human control
 ###### $ python player.py
 
-#### User
-#### ---------
+###### #### User
+###### #### ---------
 
 ###### register(
 ######    id='Kendama-v0',
@@ -18,7 +18,5 @@
 ######    max_episode_steps=500,
 ######    reward_threshold=100.0,
 ######    )
-
-
 
 

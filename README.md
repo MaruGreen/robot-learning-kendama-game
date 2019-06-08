@@ -21,6 +21,6 @@
 ###  For automatical control
 ###### $ pyhton test_model.py
 ###  For human control
-###### $ python player.py
+###### $ python player.py --gain 40.0 --damping 1.0
 
 

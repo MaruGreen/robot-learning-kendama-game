@@ -14,6 +14,13 @@ import sys
 import gym
 import time
 import numpy as np
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('--gain', type=float, default=40.0)
+parser.add_argument('--damping', type=float, default=1.0)
+args = parser.parse_args()
 
 # gym initialization
 env = gym.make('Kendama-v0').unwrapped
@@ -47,8 +54,8 @@ pygame.display.set_caption('pygame event')
 #smooth = 10
 # for mouse control
 x, y = None, None
-gain = 40
-damping = 1.0
+gain = args.gain
+damping = args.damping
 # while True
 while True:
     '''

@@ -1,4 +1,3 @@
-
 '''
 
 Author: Li Shidi
@@ -50,19 +49,24 @@ class KendamaEnv0(gym.Env):
     def _immediate_reward(self, obs, act):
         '''
         L(st, at) = 0.5 * (st - st^ref).T * Q * (st - st^ref) + 0.5 * (at - at^ref).T * R * (at - at^ref)
+        For st, consider only the first 4 elements
         Immediate rewards should be further normalized due to different step length
         '''
-        if len(self.reference) == 0:
-            return 0
         reward = 0
+        num_traj_count = 0
         for traj in self.reference:
+            if len(traj['actions']) <= self.time_step:
+                continue
+            num_traj_count += 1
             ref_obs = traj['observations'][self.time_step][0:4].reshape([1, 4])
             ref_act = traj['actions'][self.time_step].reshape([1, 2])
             cur_obs = obs[0:4].copy().reshape([1, 4])
             cur_act = act.copy().reshape([1, 2])
             reward += 0.5 * np.matrix(ref_obs - cur_obs) * traj['Q_matrix'] * np.matrix(ref_obs - cur_obs).T
             reward += 0.5 * np.matrix(ref_act - cur_act) * traj['R_matrix'] * np.matrix(ref_act - cur_act).T
-        return float(reward) / self.reference.__len__()
+        if num_traj_count == 0:
+            return 0
+        return float(reward) / num_traj_count
 
     def _final_reward(self, obs):
         # part 1: check if the Dama hole is facing the movement forward direction
@@ -84,6 +88,7 @@ class KendamaEnv0(gym.Env):
         print('The Dama movement direction is', phi * 180 / np.pi, 'degree')
         # the success conditions
         if np.abs(angle_margin) < 10 and np.power(dis, 2) < 30 and np.abs(theta_margin) < 15:
+        #if np.abs(angle_margin) < 30 and np.power(dis, 2) < 30 and np.abs(theta_margin) < 30:
             print('Ken catches Dama successfully!')
             self.success = True
 

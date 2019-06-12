@@ -18,7 +18,7 @@
 
 ## How to run
 ###  For automatical control
-###### $ pyhton test_model.py
+###### $ pyhton test_optimal.py
 ###  For manual control
 ###### $ python player.py --gain 40.0 --damping 1.0
 

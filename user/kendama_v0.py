@@ -256,7 +256,7 @@ class KendamaEnv0(gym.Env):
 
         self.observation[0:13] = np.zeros(13)
         # set the initial position and velocity of Ken
-        self.observation[0:6] = init_state
+        self.observation[0:6] = init_state[0:6]
         sin = np.sin(self.observation[4])
         cos = np.cos(self.observation[4])
 

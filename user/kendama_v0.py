@@ -362,3 +362,5 @@ class KendamaEnv0(gym.Env):
         if self.viewer:
             self.viewer.close()
             self.viewer = None
+
+            

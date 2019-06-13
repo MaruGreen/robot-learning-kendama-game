@@ -242,7 +242,8 @@ class KendamaEnv0(gym.Env):
         else:
             done = False
 
-        info = {}
+        # this will be used in NaiveDDP
+        info = {'state': np.hstack((self.observation[0: 6], 1))}
         self.time_step += 1
         return next_obs, reward, done, info
 

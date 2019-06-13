@@ -3,9 +3,9 @@
 ## How to install
 ###### $ pip install gym
 ###### $ pip install pygame
-###### $ mv user/ $(YOUR_PATH_TO_gym_envs)/
+###### $ mv user/ ${YOUR_PATH_TO_gym_envs}/
 ####   For me, I run $ mv user/ ~/.local/lib/python3.7/site-package/gym/envs/
-###  Add the following code to the end of $(YOUR_PATH_TO_gym_envs)/--init--.py
+###  Add the following code to the end of ${YOUR_PATH_TO_gym_envs}/--init--.py
 ###### #### User
 ###### #### ---------
 

@@ -20,6 +20,6 @@
 ###  For automatical control
 ###### $ pyhton test_optimal.py
 ###  For manual control
-###### $ python player.py --gain 40.0 --damping 1.0
+###### $ python player.py --gain 40.0 --damping 0.8
 
 

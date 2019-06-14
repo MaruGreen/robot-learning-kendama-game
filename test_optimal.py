@@ -50,7 +50,7 @@ if __name__=='__main__':
     init_state = np.zeros(6)
     init_state[0:2] = position[0]
     init_state[2:4] = velocity[0]
-    obs = env.reset(init_state=init_state)
+    env.reset(init_state=init_state)
 
     # obtain a reference trajectory to calculate the immediate reward
     t = 0

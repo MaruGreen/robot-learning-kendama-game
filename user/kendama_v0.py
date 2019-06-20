@@ -23,8 +23,9 @@ class KendamaEnv0(gym.Env):
         When T = 0,
         '''
         self.observation = np.zeros(13)
-        self.observation_space = self.observation.shape
-        self.action_space = np.zeros(2).shape
+        # These will be used in AC node
+        self.observation_space = self.observation
+        self.action_space = np.zeros(2)
 
         self.mass = 1.0          # unit mass
         self.length = 400.0      # millimeter
@@ -362,5 +363,3 @@ class KendamaEnv0(gym.Env):
         if self.viewer:
             self.viewer.close()
             self.viewer = None
-
-            

@@ -248,7 +248,10 @@ class KendamaEnv0(gym.Env):
         self.time_step += 1
         return next_obs, reward, done, info
 
-    def reset(self, init_state=np.zeros(6)):
+    def reset(self, init_state=None):
+        # default initial positon
+        if init_state is None:
+            init_state = [22.253, 371.043, 0, 0, 0, 0]
         self.tighten = True
         self.finalized = False
         self.collision = False

@@ -24,8 +24,8 @@ class KendamaEnv0(gym.Env):
         '''
         self.observation = np.zeros(13)
         # These will be used in AC node
-        self.observation_space = self.observation
-        self.action_space = np.zeros(2)
+        self.observation_space = gym.spaces.Box(-np.inf, np.inf, shape=(13,), dtype='float32')
+        self.action_space = gym.spaces.Box(-8000, 8000, shape=(2,), dtype='float32')
 
         self.mass = 1.0          # unit mass
         self.length = 400.0      # millimeter
@@ -50,8 +50,9 @@ class KendamaEnv0(gym.Env):
     def _immediate_reward(self, obs, act):
         '''
         L(st, at) = 0.5 * (st - st^ref).T * Q * (st - st^ref) + 0.5 * (at - at^ref).T * R * (at - at^ref)
-        For st, consider only the first 4 elements
-        Immediate rewards should be further normalized due to different step length
+        For st, consider only the first 4 elements.
+        The immediate reward is defined to be the negative cost.
+        Immediate rewards should be further normalized due to different step length.
         '''
         reward = 0
         num_traj_count = 0
@@ -63,8 +64,8 @@ class KendamaEnv0(gym.Env):
             ref_act = traj['actions'][self.time_step].reshape([1, 2])
             cur_obs = obs[0:4].copy().reshape([1, 4])
             cur_act = act.copy().reshape([1, 2])
-            reward += 0.5 * np.matrix(ref_obs - cur_obs) * traj['Q_matrix'] * np.matrix(ref_obs - cur_obs).T
-            reward += 0.5 * np.matrix(ref_act - cur_act) * traj['R_matrix'] * np.matrix(ref_act - cur_act).T
+            reward -= 0.5 * np.matrix(ref_obs - cur_obs) * traj['Q_matrix'] * np.matrix(ref_obs - cur_obs).T
+            reward -= 0.5 * np.matrix(ref_act - cur_act) * traj['R_matrix'] * np.matrix(ref_act - cur_act).T
         if num_traj_count == 0:
             return 0
         return float(reward) / num_traj_count

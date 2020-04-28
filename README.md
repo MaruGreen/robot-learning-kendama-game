@@ -4,7 +4,7 @@
 ###### $ pip install numpy gym pygame matplotlib
 
 ####   Move the folder 'user' to the environment library of python interpreter, for example, ~/.local/lib/python3.7/site-package/gym/envs/.
-####   Add the following code to the end of ${YOUR_PATH_TO_gym_envs}/--init--.py
+####   Add the following code to the end of ~/.local/lib/python3.7/site-package/gym/envs/--init--.py
 ###### #### User
 ###### #### ---------
 

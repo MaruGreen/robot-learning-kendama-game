@@ -21,5 +21,6 @@
 ###### $ pyhton test_optimal.py
 ###  For manual control
 ###### $ python player.py --gain 40.0 --damping 0.8
-
+### For learning process of MBMF learning
+###### $ python main.py
 

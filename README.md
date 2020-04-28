@@ -1,10 +1,9 @@
 # 2d Kendama simulator based on OpenAI gym
 
 ## How to install
-###### $ pip install gym
-###### $ pip install pygame
-###### $ mv user/ ${YOUR_PATH_TO_gym_envs}/
-####   For me, I run $ mv user/ ~/.local/lib/python3.7/site-package/gym/envs/
+###### $ pip install numpy gym pygame matplotlib
+
+####   Move the folder 'user' to the environment library of python interpreter, for example, ~/.local/lib/python3.7/site-package/gym/envs/.
 ####   Add the following code to the end of ${YOUR_PATH_TO_gym_envs}/--init--.py
 ###### #### User
 ###### #### ---------
